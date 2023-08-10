@@ -1,11 +1,10 @@
+import MovieCard from "./MovieCard";
 
-
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <h1>React App</h1>
-    </div>
+    <>
+      <h1>Movie Flix</h1>
+      <MovieCard />
+    </>
   );
 }
-
-export default App;
