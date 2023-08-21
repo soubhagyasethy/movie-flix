@@ -2,12 +2,43 @@ import React from "react";
 import "./styles.css";
 
 class MovieCard extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      title: "The Avengers",
+      plot: "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
+      price: 199,
+      rating: 8.5,
+      stars: 0,
+    };
+  }
+
+  addStars = () => {
+    if (this.state.stars >= 5) {
+      return;
+    }
+
+    this.setState((prevState) => ({
+      stars: prevState.stars + 0.5,
+    }));
+  };
+
+  subStars = () => {
+    if (this.state.stars <= 0) {
+      return;
+    }
+
+    this.setState((prevState) => ({
+      stars: prevState.stars - 0.5,
+    }));
+  };
+
   render() {
+    const { title, plot, price, rating, stars } = this.state;
     return (
       <div className="main">
-        {/**Movie Card */}
         <div className="movie-card">
-          {/**Left section of Movie Card */}
+          {/* Left side of the card */}
           <div className="left">
             <img
               alt="poster"
@@ -15,27 +46,20 @@ class MovieCard extends React.Component {
             />
           </div>
 
-          {/**Right section Movie Card */}
+          {/* Right side of the card */}
           <div className="right">
-            {/**Title, plot, price of the movie */}
-            <div className="title">The Avengers</div>
-            <div className="plot">
-              Earth's mightiest heroes must come together and learn to fight as
-              a team if they are going to stop the mischievous Loki and his
-              alien army from enslaving humanity.
-            </div>
-            <div className="price">Rs. 199</div>
+            <div className="title">{title}</div>
+            <div className="plot">{plot}</div>
+            <div className="price">{price}</div>
 
-            {/**Footer starts here with ratings, stars and buttons */}
             <div className="footer">
-              <div className="rating">8.5</div>
-
-              {/**Star image with increase and decrease buttons and star count */}
+              <div className="rating">{rating}</div>
               <div className="star-dis">
                 <img
                   className="str-btn"
                   alt="Decrease"
                   src="https://cdn-icons-png.flaticon.com/128/2801/2801932.png"
+                  onClick={this.subStars}
                 />
                 <img
                   className="stars"
@@ -46,11 +70,11 @@ class MovieCard extends React.Component {
                   className="str-btn"
                   alt="increase"
                   src="https://cdn-icons-png.flaticon.com/128/2997/2997933.png"
+                  onClick={this.addStars}
                 />
-                <span className="starCount">0</span>
+                <span className="starCount">{this.state.stars}</span>
               </div>
 
-              {/**Favourite and add to cart buttons */}
               <button className="favourite-btn">Favourite</button>
               <button className="cart-btn">Add to Cart</button>
             </div>
