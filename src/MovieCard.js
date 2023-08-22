@@ -10,6 +10,7 @@ class MovieCard extends React.Component {
       price: 199,
       rating: 8.5,
       stars: 0,
+      favourite: false,
     };
   }
 
@@ -33,8 +34,14 @@ class MovieCard extends React.Component {
     }));
   };
 
+  handleFavourite = () => {
+    this.setState((prevState) => ({
+      favourite: !prevState.favourite,
+    }));
+  };
+
   render() {
-    const { title, plot, price, rating, stars } = this.state;
+    const { title, plot, price, rating, stars, favourite } = this.state;
     return (
       <div className="main">
         <div className="movie-card">
@@ -72,10 +79,15 @@ class MovieCard extends React.Component {
                   src="https://cdn-icons-png.flaticon.com/128/2997/2997933.png"
                   onClick={this.addStars}
                 />
-                <span className="starCount">{this.state.stars}</span>
+                <span className="starCount">{stars}</span>
               </div>
 
-              <button className="favourite-btn">Favourite</button>
+              <button
+                className={favourite ? "unfavourite-btn" : "favourite-btn"}
+                onClick={this.handleFavourite}
+              >
+                {favourite ? "UnFavourite" : "Favourite"}
+              </button>
               <button className="cart-btn">Add to Cart</button>
             </div>
           </div>
