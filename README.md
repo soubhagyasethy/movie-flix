@@ -19,10 +19,24 @@ To run this React app locally, follow these steps:
 4. Execute `npm start` to start the development server.
 5. Open your browser and go to `http://localhost:3000` to view the app.
 
-## Usage
+## Technologies and concepts Used
 
-Upon launching the app, you'll land on the main page showcasing the list of movies. From there, you can:
+- React
+- Vanilla CSS
+- States in React
+- Components in React
+- Props in React
+  
+## Contributing
 
-- Explore movies and view their details such as ratings, descriptions, prices.
-- Adjust the quantity of a movie using the provided buttons.
-- Add movies to your shopping cart or favorites list by clicking the respective buttons.
+If you wish to contribute to this project, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature/improvement`).
+3. Make your changes and commit them (`git commit -m 'Add feature/improvement'`).
+4. Push to the original branch (`git push origin feature/improvement`).
+5. Create a new Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
